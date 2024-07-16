@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const AddAttendence = () => {
+
+    const [input, setInput] = useState("");
+    const [attendence, setAttendence] = useState([]);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        if (input) setAttendence([...attendence, input]);
+        setInput("");
+        console.log(attendence);
+    }
+
     return (
-        <div>AddAttendence</div>
+        <>
+            <h2>Add Attendence</h2>
+            <div className='container'>
+                <label htmlFor='name'>Name:</label>
+                <input id='name' type='text' value={input} onChange={(e) => setInput(e.target.value)} />
+            </div>
+            <button onClick={handleClick}>Add</button>
+        </>
     )
 }
