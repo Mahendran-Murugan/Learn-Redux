@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { ShowAttendence } from './ShowAttendence';
+import { useDispatch } from 'react-redux';
+import { addAttendence } from '../slices/attendenceSlice';
 
 export const AddAttendence = () => {
 
     const [input, setInput] = useState("");
-    const [attendence, setAttendence] = useState([]);
+    const dispatcher = useDispatch();
 
     const handleClick = (e) => {
         e.preventDefault();
-        if (input) setAttendence([...attendence, input]);
+        if (input) dispatcher(addAttendence(input));
         setInput("");
-        console.log(attendence);
     }
 
     return (
@@ -21,7 +21,6 @@ export const AddAttendence = () => {
                 <input id='name' type='text' value={input} onChange={(e) => setInput(e.target.value)} />
             </div>
             <button onClick={handleClick}>Add</button>
-            <ShowAttendence data={attendence} />
         </>
     )
 }
