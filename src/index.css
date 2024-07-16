@@ -22,7 +22,15 @@ code {
 
 .container {
   display: flex;
-  justify-content: center;
+  list-style-type: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
   align-items: center;
   gap: 1rem;
 }

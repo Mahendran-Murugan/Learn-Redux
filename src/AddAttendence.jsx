@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ShowAttendence } from './ShowAttendence';
 
 export const AddAttendence = () => {
 
@@ -20,6 +21,7 @@ export const AddAttendence = () => {
                 <input id='name' type='text' value={input} onChange={(e) => setInput(e.target.value)} />
             </div>
             <button onClick={handleClick}>Add</button>
+            <ShowAttendence data={attendence} />
         </>
     )
 }
